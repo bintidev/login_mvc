@@ -1,0 +1,281 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    /* ← NO uses 100vw */
+    margin: 0;
+
+    display: block;
+    /* ← QUITA flex del body */
+    padding: 20px;
+}
+
+.background-animated {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url("https://steam.pics/fons/afede0edf03584663cf62f432cba1ad3.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: sway 12s ease-in-out infinite alternate;
+    z-index: -2;
+}
+
+/* Filtro encima del fondo */
+.background-animated::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(39, 0, 16, 0.55);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Animación de desplazamiento suave */
+@keyframes sway {
+    0% {
+        background-position: 45% 50%;
+    }
+
+    50% {
+        background-position: 55% 50%;
+    }
+
+    100% {
+        background-position: 45% 50%;
+    }
+}
+
+h4 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    opacity: .85;
+}
+
+label {
+    font-size: 12.5px;
+    color: #000;
+    opacity: .8;
+    font-weight: 400;
+}
+
+/* FORM */
+form {
+    padding: 40px 30px;
+    background: rgb(41, 39, 59);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    width: 300px;
+}
+
+form h4 {
+    margin-bottom: 20px;
+    color: #f3f2f2;
+}
+
+form h4 span {
+    color: #fafafa;
+    font-weight: 700;
+}
+
+form p {
+    line-height: 155%;
+    margin-bottom: 40px;
+    font-size: 14px;
+    color: #ffffff;
+    opacity: .65;
+    font-weight: 400;
+    max-width: 200px;
+}
+
+/* BUTTON */
+button {
+    --webkit-appearance: none;
+    width: auto;
+    min-width: 100px;
+    border-radius: 24px;
+    text-align: center;
+    padding: 15px 40px;
+    margin-top: 5px;
+    background-color: rgb(97, 16, 43);
+    /* saturate($primary, 30%) */
+    color: #fff;
+    font-size: 14px;
+    margin-left: auto;
+    font-weight: 500;
+    box-shadow: 0px 2px 6px -1px rgba(255, 63, 153, 0.13);
+    border: none;
+    transition: all .3s ease;
+    outline: 0;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    background-color: rgb(146, 0, 68);
+}
+
+button:hover:active {
+    transform: scale(.99);
+}
+
+/* INPUT */
+input {
+    font-size: 16px;
+    padding: 20px 0px;
+    height: 56px;
+    border: none;
+    border-bottom: solid 1px rgb(146, 0, 68);
+    background: #ffffff00;
+    width: 280px;
+    box-sizing: border-box;
+    transition: all .3s linear;
+    color: #cfcfcf;
+    font-weight: 400;
+    --webkit-appearance: none;
+}
+
+input:focus {
+    border-bottom: solid 1px rgb(255, 63, 153);
+    outline: 0;
+    box-shadow: 0 2px 6px -8px rgba(150, 4, 94, 0.45);
+}
+
+/* FLOATING LABEL */
+.floating-label {
+    position: relative;
+    margin-bottom: 10px;
+    width: 90%;
+}
+
+.floating-label label {
+    position: absolute;
+    top: calc(50% - 7px);
+    left: 0;
+    opacity: 0;
+    transition: all .3s ease;
+    padding-left: 44px;
+}
+
+.floating-label input,
+.form-text {
+    width: calc(100% - 44px);
+    margin-left: auto;
+    display: flex;
+}
+
+.floating-label .icon {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    display: flex;
+}
+
+.floating-label .icon svg {
+    height: 30px;
+    width: 30px;
+    margin: auto;
+    opacity: .15;
+    transition: all .3s ease;
+}
+
+.floating-label .icon svg path {
+    transition: all .3s ease;
+}
+
+/* LABEL FLOAT BEHAVIOR */
+.floating-label input:not(:placeholder-shown) {
+    padding: 28px 0px 12px 0px;
+}
+
+.floating-label input:not(:placeholder-shown)+label {
+    transform: translateY(-35px);
+    opacity: .7;
+    color: #f3f2f2;
+}
+
+.floating-label input:valid:not(:placeholder-shown)+label+.icon svg {
+    opacity: 1;
+    fill: rgb(236, 236, 236);
+}
+
+.floating-label input:not(:valid):not(:focus)+label+.icon {
+    animation-name: shake-shake;
+    animation-duration: .3s;
+}
+
+/* SHAKE ANIMATION */
+@keyframes shake-shake {
+    0% {
+        transform: translateX(-3px);
+    }
+
+    20% {
+        transform: translateX(3px);
+    }
+
+    40% {
+        transform: translateX(-3px);
+    }
+
+    60% {
+        transform: translateX(3px);
+    }
+
+    80% {
+        transform: translateX(-3px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+/* SESSION LAYOUT */
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    margin: 20px auto;
+    position: relative;
+    z-index: 10;
+    background: transparent;
+    border-radius: 4px;
+    box-shadow: 0px 0px 35px -1px rgba(156, 0, 109, 0.788);
+}
+
+/* LEFT PANEL */
+.left {
+    width: 220px;
+    height: auto;
+    position: relative;
+    background-image: url('https://a-static.besthdwallpaper.com/tokyo-ghoul-re-dragon-kaneki-wallpaper-800x1280-9465_198.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+/* ALERTAS */
+.alerta-error {
+    background-color: rgba(255, 166, 207, 1);
+    border: solid 1px rgb(97, 16, 43);
+    color: rgb(97, 16, 43);
+}
