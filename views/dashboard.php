@@ -18,7 +18,7 @@ include 'config/secure-session.php';
     
     <h1>CCG CRUD</h1>
     <p>Bienvenid@, <?php echo $_SESSION['idusuario'] ?></p>
-    <a class="btn btn-primary" href="./index.php?route=logout">Logout</a>
+    <a class="btn btn-primary" href="index.php?action=logout">Logout</a>
 
 </body>
 </html>

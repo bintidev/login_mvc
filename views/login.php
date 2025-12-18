@@ -16,8 +16,8 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Access Form</title>
-    <link rel="shortcut icon" href="../public/img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="../public/css/style.css">
+    <link rel="shortcut icon" href="public/img/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="public/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
@@ -39,7 +39,7 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
             method="post" autocomplete="off" id="accessForm">
 
             <!-- CABECERA (logo, nombre organizacion) -->
-            <img src="../public/img/ccg_logo.png" alt="ccg_logo" width="80" style="margin: 0; padding: 0;" />
+            <img src="public/img/ccg_logo.png" alt="ccg_logo" width="80" style="margin: 0; padding: 0;" />
             <h4>We are <span>CCG</span></h4>
             <p>Welcome back, agent. Please, enter your credentials below:</p>
 
@@ -114,7 +114,7 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
             </div>
 
             <div>
-                <input type="hidden" name="csrf_token" id="csrf_token" value="<?php echo $_SESSION['csrf_token'] ?>" />
+                <input type="hidden" name="csrf_token" id="csrf_token" value='<?php echo $_SESSION["csrf_token"] ?>' />
             </div>
 
             <div>
@@ -125,7 +125,7 @@ if (isset($_SESSION['usuario_logueado'])) {  // si el usuario estuviera ya logea
         
     </div>
 
-    <script src="../public/js/validation.js"></script>
+    <script src="public/js/validation.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

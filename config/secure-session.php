@@ -1,6 +1,6 @@
 <?php
 
-require_once './controllers/AuthController.php';
+//require_once 'controllers/AuthController.php';
 
 // Iniciar sesión
 // los parametros comentados son propias
@@ -39,7 +39,8 @@ if (isset($_SESSION['last_regeneration']) && (time() - $_SESSION['last_regenerat
     session_unset();
     // Y la destruye
     session_destroy();
-    $controller->logout();
+    header('Location: index.php?action=login');
+    exit();
 }
 
 

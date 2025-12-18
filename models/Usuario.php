@@ -22,7 +22,7 @@ class Usuario
         $stmt->bindParam(2, $password);
         $stmt->execute();
 
-        $num = $stmt->rowCount(); 
+        $num = $stmt->rowCount();
 
         if ($num > 0) {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
